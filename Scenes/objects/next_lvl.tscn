@@ -1,5 +1,6 @@
-[gd_scene format=3 uid="uid://br0g2fe7pexpm"]
+[gd_scene format=3 uid="uid://cismm0ollihmu"]
 
+[ext_resource type="Script" uid="uid://mwto5gsvx5d2" path="res://Scripts/lvl1.gd" id="1_710nj"]
 [ext_resource type="Texture2D" uid="uid://dhnshc60chsk0" path="res://Assets/Animated Portal/Portal-Spinning.png" id="1_s2xy7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_710nj"]
@@ -70,6 +71,7 @@ animations = [{
 radius = 7.071068
 
 [node name="NextLvl" type="Area2D" unique_id=1416293650]
+script = ExtResource("1_710nj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=613297205]
 position = Vector2(1, 0)

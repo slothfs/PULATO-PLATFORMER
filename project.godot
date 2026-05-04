@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PALUTO"
-run/main_scene="uid://bnq1alhljmfvn"
+run/main_scene="res://Scenes/levels/level_1.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 

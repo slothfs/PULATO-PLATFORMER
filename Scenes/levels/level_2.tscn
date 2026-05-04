@@ -1,10 +1,11 @@
-[gd_scene format=3 uid="uid://bcqmhj2xm8flk"]
+[gd_scene format=3 uid="uid://cp5uywyiwia3s"]
 
 [ext_resource type="Texture2D" uid="uid://ntb0befljsre" path="res://Assets/Sprites/tiles_1.png" id="1_u4prk"]
 [ext_resource type="PackedScene" uid="uid://q74wvdsok2l4" path="res://Scenes/player.tscn" id="2_q2mrg"]
-[ext_resource type="PackedScene" uid="uid://br0g2fe7pexpm" path="res://Scenes/objects/next_lvl.tscn" id="3_q2mrg"]
+[ext_resource type="PackedScene" uid="uid://cismm0ollihmu" path="res://Scenes/objects/next_lvl.tscn" id="3_q2mrg"]
+[ext_resource type="Script" uid="uid://cyfp75ve8txeb" path="res://Scenes/objects/lvl2.gd" id="4_mb2fk"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mb2fk"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_peptx"]
 texture = ExtResource("1_u4prk")
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -323,7 +324,7 @@ terrain_set_0/terrain_0/name = "one_way_ground"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 terrain_set_0/terrain_1/name = "ground"
 terrain_set_0/terrain_1/color = Color(0.7975259, 0.72086936, 0.4940905, 1)
-sources/1 = SubResource("TileSetAtlasSource_mb2fk")
+sources/1 = SubResource("TileSetAtlasSource_peptx")
 
 [node name="level2" type="Node2D" unique_id=1566857159]
 
@@ -344,3 +345,17 @@ position_smoothing_enabled = true
 
 [node name="NextLvl" parent="." unique_id=1416293650 instance=ExtResource("3_q2mrg")]
 position = Vector2(909, 324)
+script = ExtResource("4_mb2fk")
+
+[node name="Background" type="CanvasLayer" parent="." unique_id=1899281934]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background" unique_id=136011923]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2, 0.4, 0.6, 1)
+
+[connection signal="body_entered" from="NextLvl" to="Player" method="_on_next_lvl_body_entered"]

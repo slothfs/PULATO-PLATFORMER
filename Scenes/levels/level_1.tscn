@@ -1,9 +1,10 @@
-[gd_scene format=3 uid="uid://buplxorhym8uq"]
+[gd_scene format=3 uid="uid://dw0jns77roxlo"]
 
 [ext_resource type="Texture2D" uid="uid://ntb0befljsre" path="res://Assets/Sprites/tiles_1.png" id="1_mkwgf"]
 [ext_resource type="PackedScene" uid="uid://q74wvdsok2l4" path="res://Scenes/player.tscn" id="2_2mbx3"]
+[ext_resource type="PackedScene" uid="uid://cismm0ollihmu" path="res://Scenes/objects/next_lvl.tscn" id="4_0lml3"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2mbx3"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yffda"]
 texture = ExtResource("1_mkwgf")
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -322,7 +323,7 @@ terrain_set_0/terrain_0/name = "one_way_ground"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 terrain_set_0/terrain_1/name = "ground"
 terrain_set_0/terrain_1/color = Color(0.7975259, 0.72086936, 0.4940905, 1)
-sources/1 = SubResource("TileSetAtlasSource_2mbx3")
+sources/1 = SubResource("TileSetAtlasSource_yffda")
 
 [node name="level1" type="Node2D" unique_id=141048110]
 
@@ -341,3 +342,16 @@ position = Vector2(60, 358)
 position = Vector2(13, -23)
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
+
+[node name="Background" type="CanvasLayer" parent="." unique_id=1138392956]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background" unique_id=1912951953]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.2, 0.4, 0.6, 1)
+
+[node name="NextLvl" parent="." unique_id=1416293650 instance=ExtResource("4_0lml3")]
+position = Vector2(922, 336)
+next_scene = "res://Scenes/test.tscn"
