@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ntb0befljsre" path="res://Assets/Sprites/tiles_1.png" id="1_mkwgf"]
 [ext_resource type="PackedScene" uid="uid://q74wvdsok2l4" path="res://Scenes/player.tscn" id="2_2mbx3"]
+[ext_resource type="Shader" uid="uid://jhe3p7k0yau4" path="res://Scenes/levels/level_1.gdshader" id="3_cru1l"]
 [ext_resource type="PackedScene" uid="uid://cismm0ollihmu" path="res://Scenes/objects/next_lvl.tscn" id="4_0lml3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yffda"]
@@ -325,6 +326,15 @@ terrain_set_0/terrain_1/name = "ground"
 terrain_set_0/terrain_1/color = Color(0.7975259, 0.72086936, 0.4940905, 1)
 sources/1 = SubResource("TileSetAtlasSource_yffda")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0lml3"]
+shader = ExtResource("3_cru1l")
+shader_parameter/color_main = Color(0.3888626, 2.8036163e-06, 0.25318673, 1)
+shader_parameter/color_light = Color(1, 0.65200114, 0.8513402, 1)
+shader_parameter/color_dark = Color(0.9517862, 0.31776235, 0.6567326, 1)
+shader_parameter/speed = 2.5
+shader_parameter/wave_strength = 9.223372e+18
+shader_parameter/line_density = 1.0
+
 [node name="level1" type="Node2D" unique_id=141048110]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=855545705]
@@ -347,9 +357,16 @@ position_smoothing_enabled = true
 layer = -1
 
 [node name="ColorRect" type="ColorRect" parent="Background" unique_id=1912951953]
+material = SubResource("ShaderMaterial_0lml3")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = -7.0
+offset_right = 19.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.2, 0.4, 0.6, 1)
 
 [node name="NextLvl" parent="." unique_id=1416293650 instance=ExtResource("4_0lml3")]
