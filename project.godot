@@ -49,6 +49,12 @@ right_run={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_9="ground"
+2d_physics/layer_10="one_way_collision"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

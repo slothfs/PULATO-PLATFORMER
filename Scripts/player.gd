@@ -7,6 +7,13 @@ extends CharacterBody2D
 
 @onready var anim = $PlayerAnimation
 
+func _input(event):
+	# Jump
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = jump_force
+		anim.play("jump")
+	
+
 
 func _physics_process(delta):
 	# Gravity
@@ -58,10 +65,7 @@ func _physics_process(delta):
 	if direction != 0:
 		anim.flip_h = direction < 0
 
-	# Jump
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_force
-		anim.play("jump")
+
 
 	# Air animation
 	if not is_on_floor():

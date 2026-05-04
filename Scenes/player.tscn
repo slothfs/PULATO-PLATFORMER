@@ -298,9 +298,9 @@ radius = 6.0
 height = 24.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1373475097]
+collision_mask = 768
 script = ExtResource("1_3smsa")
 run_speed = 300.0
-jump_force = -300.0
 
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="." unique_id=339784559]
 position = Vector2(0, -16)
