@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://br0g2fe7pexpm"]
+
+[ext_resource type="Texture2D" uid="uid://dhnshc60chsk0" path="res://Assets/Animated Portal/Portal-Spinning.png" id="1_s2xy7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_710nj"]
+atlas = ExtResource("1_s2xy7")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hphbi"]
+atlas = ExtResource("1_s2xy7")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jq3d4"]
+atlas = ExtResource("1_s2xy7")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1mtk"]
+atlas = ExtResource("1_s2xy7")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1fqw"]
+atlas = ExtResource("1_s2xy7")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5p76"]
+atlas = ExtResource("1_s2xy7")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7lob"]
+atlas = ExtResource("1_s2xy7")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_238n5"]
+atlas = ExtResource("1_s2xy7")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jbgl1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_710nj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hphbi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jq3d4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1mtk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1fqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5p76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7lob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_238n5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8r8e4"]
+radius = 7.071068
+
+[node name="NextLvl" type="Area2D" unique_id=1416293650]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=613297205]
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_jbgl1")
+autoplay = "default"
+frame_progress = 0.31366012
+speed_scale = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1514479721]
+position = Vector2(9, -1)
+shape = SubResource("CircleShape2D_8r8e4")
