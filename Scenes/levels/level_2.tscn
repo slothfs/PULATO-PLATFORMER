@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://cp5uywyiwia3s"]
+[gd_scene format=3 uid="uid://nl2ykruxy05q"]
 
 [ext_resource type="Texture2D" uid="uid://ntb0befljsre" path="res://Assets/Sprites/tiles_1.png" id="1_u4prk"]
 [ext_resource type="PackedScene" uid="uid://q74wvdsok2l4" path="res://Scenes/player.tscn" id="2_q2mrg"]
 [ext_resource type="PackedScene" uid="uid://cismm0ollihmu" path="res://Scenes/objects/next_lvl.tscn" id="3_q2mrg"]
-[ext_resource type="Script" uid="uid://cyfp75ve8txeb" path="res://Scenes/objects/lvl2.gd" id="4_mb2fk"]
 [ext_resource type="Shader" uid="uid://c3qwb7tl4xgd3" path="res://Scenes/levels/level_2.gdshader" id="5_peptx"]
+[ext_resource type="PackedScene" uid="uid://b5u12n4myevm2" path="res://Scenes/levels/level_3.tscn" id="6_fh68y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_peptx"]
 texture = ExtResource("1_u4prk")
@@ -355,7 +355,7 @@ position_smoothing_enabled = true
 
 [node name="NextLvl" parent="." unique_id=1416293650 instance=ExtResource("3_q2mrg")]
 position = Vector2(909, 324)
-script = ExtResource("4_mb2fk")
+target_level = ExtResource("6_fh68y")
 
 [node name="Background" type="CanvasLayer" parent="." unique_id=1899281934]
 layer = -1

@@ -1,43 +1,46 @@
 [gd_scene format=3 uid="uid://cismm0ollihmu"]
 
-[ext_resource type="Script" uid="uid://mwto5gsvx5d2" path="res://Scripts/lvl1.gd" id="1_710nj"]
 [ext_resource type="Texture2D" uid="uid://dhnshc60chsk0" path="res://Assets/Animated Portal/Portal-Spinning.png" id="1_s2xy7"]
+[ext_resource type="Script" uid="uid://qbp2qa8xh32p" path="res://Scripts/portal.gd" id="1_script"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_710nj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2xy7"]
 atlas = ExtResource("1_s2xy7")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hphbi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_710nj"]
 atlas = ExtResource("1_s2xy7")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jq3d4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hphbi"]
 atlas = ExtResource("1_s2xy7")
 region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y1mtk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jq3d4"]
 atlas = ExtResource("1_s2xy7")
 region = Rect2(0, 64, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l1fqw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1mtk"]
 atlas = ExtResource("1_s2xy7")
 region = Rect2(64, 64, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w5p76"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1fqw"]
 atlas = ExtResource("1_s2xy7")
 region = Rect2(128, 64, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r7lob"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5p76"]
 atlas = ExtResource("1_s2xy7")
 region = Rect2(0, 128, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_238n5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7lob"]
 atlas = ExtResource("1_s2xy7")
 region = Rect2(64, 128, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_jbgl1"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_238n5"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2xy7")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_710nj")
 }, {
@@ -58,28 +61,32 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r7lob")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_238n5")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jbgl1"]
+radius = 134.53624
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_8r8e4"]
-radius = 7.071068
+radius = 16.0
 
-[node name="Area2D" type="Area2D" unique_id=1416293650]
-script = ExtResource("1_710nj")
+[node name="Portal" type="Area2D" unique_id=1186635407]
+script = ExtResource("1_script")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=613297205]
-position = Vector2(1, 0)
-sprite_frames = SubResource("SpriteFrames_jbgl1")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1805798834]
+sprite_frames = SubResource("SpriteFrames_238n5")
 autoplay = "default"
-frame_progress = 0.31366012
-speed_scale = 5.0
+frame_progress = 0.8136527
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1514479721]
-position = Vector2(9, -1)
+[node name="PullArea" type="Area2D" parent="." unique_id=1112193610]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PullArea" unique_id=1327640676]
+shape = SubResource("CircleShape2D_jbgl1")
+
+[node name="TeleportArea" type="Area2D" parent="." unique_id=83092652]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportArea" unique_id=1878666655]
 shape = SubResource("CircleShape2D_8r8e4")

@@ -8,29 +8,46 @@ extends CharacterBody2D
 @onready var anim = $PlayerAnimation
 
 var is_dead: bool = false
-var audio_player: AudioStreamPlayer
+var step_player: AudioStreamPlayer
+var sfx_player: AudioStreamPlayer
 
 var jump_snd: AudioStream
 var walk_snd: AudioStream
 var run_snd: AudioStream
+var death_snd: AudioStream
 
 var step_timer: float = 0.0
 
 func _ready():
-	audio_player = AudioStreamPlayer.new()
-	add_child(audio_player)
+	step_player = AudioStreamPlayer.new()
+	step_player.volume_db = -6.0
+	add_child(step_player)
 	
-	if FileAccess.file_exists("res://Assets/Audio/jump.wav"):
+	sfx_player = AudioStreamPlayer.new()
+	sfx_player.volume_db = -6.0
+	add_child(sfx_player)
+	
+	if FileAccess.file_exists("res://Assets/Audio/better_jump.wav"):
+		jump_snd = load("res://Assets/Audio/better_jump.wav")
+	elif FileAccess.file_exists("res://Assets/Audio/jump.wav"):
 		jump_snd = load("res://Assets/Audio/jump.wav")
-	if FileAccess.file_exists("res://Assets/Audio/footstep.tres"):
-		walk_snd = load("res://Assets/Audio/footstep.tres")
-		run_snd = load("res://Assets/Audio/footstep.tres")
+		
+	if FileAccess.file_exists("res://Assets/Audio/slime_walk_random.tres"):
+		walk_snd = load("res://Assets/Audio/slime_walk_random.tres")
+	if FileAccess.file_exists("res://Assets/Audio/slime_run_random.tres"):
+		run_snd = load("res://Assets/Audio/slime_run_random.tres")
+	if FileAccess.file_exists("res://Assets/Audio/impact_death.wav"):
+		death_snd = load("res://Assets/Audio/impact_death.wav")
 
 func die():
 	if is_dead: return
 	is_dead = true
 	velocity = Vector2.ZERO
 	anim.play("death")
+	
+	if death_snd:
+		sfx_player.stream = death_snd
+		sfx_player.play()
 	
 	await get_tree().create_timer(1.5).timeout
 	get_tree().change_scene_to_file("res://Scenes/dead_scene.tscn")
@@ -42,8 +59,8 @@ func _input(event):
 		velocity.y = jump_force
 		anim.play("jump")
 		if jump_snd:
-			audio_player.stream = jump_snd
-			audio_player.play()
+			sfx_player.stream = jump_snd
+			sfx_player.play()
 
 func _physics_process(delta):
 	if is_dead: return
@@ -69,8 +86,8 @@ func _physics_process(delta):
 			if step_timer <= 0:
 				step_timer = 0.3
 				if run_snd:
-					audio_player.stream = run_snd
-					audio_player.play()
+					step_player.stream = run_snd
+					step_player.play()
 
 	# RUN RIGHT (Shift + D)
 	elif Input.is_action_pressed("right_run"):
@@ -83,8 +100,8 @@ func _physics_process(delta):
 			if step_timer <= 0:
 				step_timer = 0.3
 				if run_snd:
-					audio_player.stream = run_snd
-					audio_player.play()
+					step_player.stream = run_snd
+					step_player.play()
 
 	# WALK LEFT (A)
 	elif Input.is_action_pressed("left"):
@@ -97,8 +114,8 @@ func _physics_process(delta):
 			if step_timer <= 0:
 				step_timer = 0.4
 				if walk_snd:
-					audio_player.stream = walk_snd
-					audio_player.play()
+					step_player.stream = walk_snd
+					step_player.play()
 
 	# WALK RIGHT (D)
 	elif Input.is_action_pressed("right"):
@@ -111,12 +128,13 @@ func _physics_process(delta):
 			if step_timer <= 0:
 				step_timer = 0.4
 				if walk_snd:
-					audio_player.stream = walk_snd
-					audio_player.play()
+					step_player.stream = walk_snd
+					step_player.play()
 
 	# IDLE
 	else:
 		velocity.x = move_toward(velocity.x, 0, walk_speed)
+		step_timer = 0.0 # Reset so next move plays sound immediately
 		
 		if is_on_floor():
 			anim.play("idle")

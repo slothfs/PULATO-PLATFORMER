@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://q74wvdsok2l4" path="res://Scenes/player.tscn" id="2_2mbx3"]
 [ext_resource type="Shader" uid="uid://jhe3p7k0yau4" path="res://Scenes/levels/level_1.gdshader" id="3_cru1l"]
 [ext_resource type="PackedScene" uid="uid://cismm0ollihmu" path="res://Scenes/objects/next_lvl.tscn" id="4_0lml3"]
-[ext_resource type="PackedScene" uid="uid://nl2ykruxy05q" path="res://Scenes/levels/level_2.tscn" id="6_level2"]
+[ext_resource type="Script" uid="uid://cf6jha1slupcu" path="res://Scenes/objects/lvl1_po.gd" id="5_0lml3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yffda"]
 texture = ExtResource("1_mkwgf")
@@ -370,6 +370,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.2, 0.4, 0.6, 1)
 
-[node name="Portal" parent="." unique_id=669869578 groups=["player"] instance=ExtResource("4_0lml3")]
-position = Vector2(854, 296)
-target_level = ExtResource("6_level2")
+[node name="Portal" parent="." unique_id=669869578 instance=ExtResource("4_0lml3")]
+position = Vector2(896, 313)
+script = ExtResource("5_0lml3")

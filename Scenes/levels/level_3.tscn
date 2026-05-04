@@ -1,7 +1,9 @@
-[gd_scene format=3 uid="uid://eokiknktitkg"]
+[gd_scene format=3 uid="uid://b5u12n4myevm2"]
 
 [ext_resource type="Texture2D" uid="uid://ntb0befljsre" path="res://Assets/Sprites/tiles_1.png" id="1_n12qs"]
 [ext_resource type="PackedScene" uid="uid://q74wvdsok2l4" path="res://Scenes/player.tscn" id="2_jw3cj"]
+[ext_resource type="PackedScene" uid="uid://cismm0ollihmu" path="res://Scenes/objects/next_lvl.tscn" id="4_863cj"]
+[ext_resource type="PackedScene" path="res://Scenes/win_scene.tscn" id="6_hip6n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f852d"]
 texture = ExtResource("1_n12qs")
@@ -340,3 +342,13 @@ position = Vector2(60, 358)
 position = Vector2(13, -23)
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
+
+[node name="Portal" parent="." unique_id=1186635407 instance=ExtResource("4_863cj")]
+position = Vector2(900, 350)
+target_level = ExtResource("6_hip6n")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1342655330]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=258888539]
+offset_right = 40.0
+offset_bottom = 40.0
