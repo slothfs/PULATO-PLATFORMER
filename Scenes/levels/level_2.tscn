@@ -369,4 +369,12 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.2, 0.4, 0.6, 1)
 
+[node name="Label" type="Label" parent="." unique_id=671412892]
+offset_left = 340.0
+offset_top = 281.0
+offset_right = 536.0
+offset_bottom = 350.0
+theme_override_font_sizes/font_size = 54
+text = "LEVEL 2"
+
 [connection signal="body_entered" from="NextLvl" to="Player" method="_on_next_lvl_body_entered"]

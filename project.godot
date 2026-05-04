@@ -28,6 +28,10 @@ window/size/viewport_height=512
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
+[gui]
+
+theme/custom_font="uid://b71q5f55hpxjb"
+
 [input]
 
 left={

@@ -373,3 +373,11 @@ color = Color(0.2, 0.4, 0.6, 1)
 [node name="Portal" parent="." unique_id=669869578 groups=["player"] instance=ExtResource("4_0lml3")]
 position = Vector2(854, 296)
 target_level = ExtResource("6_level2")
+
+[node name="Label" type="Label" parent="." unique_id=768197318]
+offset_left = 350.0
+offset_top = 225.0
+offset_right = 533.0
+offset_bottom = 294.0
+theme_override_font_sizes/font_size = 54
+text = "LEVEL 1"
