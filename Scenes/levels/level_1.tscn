@@ -332,7 +332,7 @@ shader = ExtResource("3_cru1l")
 shader_parameter/color_main = Color(0.3888626, 2.8036163e-06, 0.25318673, 1)
 shader_parameter/color_light = Color(1, 0.65200114, 0.8513402, 1)
 shader_parameter/color_dark = Color(0.9517862, 0.31776235, 0.6567326, 1)
-shader_parameter/speed = 2.5
+shader_parameter/speed = 4.0
 shader_parameter/wave_strength = 9.223372e+18
 shader_parameter/line_density = 1.0
 
@@ -365,7 +365,7 @@ anchor_bottom = 1.0
 offset_left = 19.0
 offset_top = -7.0
 offset_right = 19.0
-offset_bottom = -7.0
+offset_bottom = 698.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.2, 0.4, 0.6, 1)

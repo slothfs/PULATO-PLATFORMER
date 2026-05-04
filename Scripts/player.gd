@@ -50,6 +50,9 @@ func die():
 		sfx_player.play()
 	
 	await get_tree().create_timer(1.5).timeout
+	var current_scene_path = get_tree().current_scene.scene_file_path
+	if current_scene_path and current_scene_path != "res://Scenes/dead_scene.tscn":
+		SceneTransition.last_scene_path = current_scene_path
 	get_tree().change_scene_to_file("res://Scenes/dead_scene.tscn")
 
 func _input(event):

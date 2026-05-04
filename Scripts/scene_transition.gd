@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+var last_scene_path: String = "res://Scenes/guide_level.tscn"
+
 @onready var top_rect: ColorRect = $TopRect
 @onready var bottom_rect: ColorRect = $BottomRect
 
