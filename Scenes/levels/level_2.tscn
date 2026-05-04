@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://q74wvdsok2l4" path="res://Scenes/player.tscn" id="2_q2mrg"]
 [ext_resource type="PackedScene" uid="uid://cismm0ollihmu" path="res://Scenes/objects/next_lvl.tscn" id="3_q2mrg"]
 [ext_resource type="Script" uid="uid://cyfp75ve8txeb" path="res://Scenes/objects/lvl2.gd" id="4_mb2fk"]
+[ext_resource type="Shader" uid="uid://c3qwb7tl4xgd3" path="res://Scenes/levels/level_2.gdshader" id="5_peptx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_peptx"]
 texture = ExtResource("1_u4prk")
@@ -326,6 +327,15 @@ terrain_set_0/terrain_1/name = "ground"
 terrain_set_0/terrain_1/color = Color(0.7975259, 0.72086936, 0.4940905, 1)
 sources/1 = SubResource("TileSetAtlasSource_peptx")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rsv82"]
+shader = ExtResource("5_peptx")
+shader_parameter/color_main = Color(0.72156864, 0.5254902, 0.043137256, 1)
+shader_parameter/color_light = Color(1, 0.95686275, 0.6392157, 1)
+shader_parameter/color_dark = Color(1, 0.84705883, 0.3019608, 1)
+shader_parameter/speed = 2.5
+shader_parameter/wave_strength = 9.223372e+18
+shader_parameter/line_density = 1.0
+
 [node name="level2" type="Node2D" unique_id=1566857159]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=781586764]
@@ -351,6 +361,7 @@ script = ExtResource("4_mb2fk")
 layer = -1
 
 [node name="ColorRect" type="ColorRect" parent="Background" unique_id=136011923]
+material = SubResource("ShaderMaterial_rsv82")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
