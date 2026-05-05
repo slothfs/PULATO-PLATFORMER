@@ -1,7 +1,6 @@
 ## *PROTOTYPE ALRET YOU ALL* V2 Update Still in development
 
-# note for reviwer:
-hey for some reason game other level is not working but it work perfeclty in godot idk why i tried every solution nothin is working most of the thing i added can be seen in that one level also i have added demo video on demo folder pleaase check out
+
 # PULATO / PLATFORMER
 this game is a platformer game where are different level and you jump and win it it have a cute player tooo - but as it is a prototype it was made very quick so not added after getting approved frorm beest i will work on main game 
 
@@ -22,10 +21,10 @@ different paltformes moving flying ect
 # result of v2 :
 added a nice fade 
 made some ui 
-added sfx 
+
 made nice bg for levels 
 made a portal pulling mechanisham
-made a guide 
+made a guide level
 
 # V2 :
 
